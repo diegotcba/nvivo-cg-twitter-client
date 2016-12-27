@@ -9,8 +9,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title" charset="utf-8">
-
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
     <div class="container full-height">
         <div class="row full-height">
             <div class="col-lg-6">
-              <form class="form-horizontal">
+              <form class="form-horizontal" id="form-busqueda">
               <fieldset>
 
               <!-- Form Name -->
@@ -30,22 +30,20 @@
 
               <!-- Select Basic -->
               <div class="form-group">
-                <label class="col-md-2 control-label" for="selectbasic">Template</label>
+                <label class="col-md-2 control-label" for="cmbTemplates">Template</label>
                 <div class="col-md-6">
-                  <select id="selectbasic" name="selectbasic" class="form-control">
-                    <option value="1">Option one</option>
-                    <option value="2">Option two</option>
+                  <select id="cmbTemplates" name="selectbasic" class="form-control">
                   </select>
                 </div>
               </div>
 
               <!-- Prepended text-->
               <div class="form-group">
-                <label class="col-md-2 control-label" for="wsAddress">WS</label>
+                <label class="col-md-2 control-label" for="wsSearch">WS</label>
                 <div class="col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">http://</span>
-                    <input id="wsAddress" name="wsAddress" class="form-control" placeholder="placeholder" required="" type="text">
+                    <input id="wsSearch" name="wsSearch" class="form-control" placeholder="placeholder" required="" type="text">
                   </div>
                   <p class="help-block">ej.: localhost, 192.168.1.1</p>
                 </div>
@@ -61,7 +59,7 @@
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <button id="search" name="singlebutton" class="btn btn-primary">Buscar</button>
+                  <button id="btnSearch" name="singlebutton" class="btn btn-primary" type="submit">Buscar</button>
                 </div>
 
               </div>
@@ -69,7 +67,7 @@
               </fieldset>
               </form>
 
-              <div class="list-group">
+              <div class="list-group" id="lstResultados">
                <a href="#" class="list-group-item active">
                  <h4 class="list-group-item-heading">First List Group Item Heading</h4>
                  <p class="list-group-item-text">List Group Item Text</p>
@@ -109,11 +107,11 @@
 
               <!-- Prepended text-->
               <div class="form-group">
-                <label class="col-md-2 control-label" for="wsAddress">WebService</label>
+                <label class="col-md-2 control-label" for="wsPlaylist">WebService</label>
                 <div class="col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">http://</span>
-                    <input id="wsAddress" name="wsAddress" class="form-control" placeholder="placeholder" required="" type="text">
+                    <input id="wsPlaylist" name="wsPlaylist" class="form-control" placeholder="placeholder" required="" type="text">
                   </div>
                   <p class="help-block">ej.: localhost, 192.168.1.1</p>
                 </div>
@@ -131,8 +129,8 @@
                 <label class="col-md-2 control-label" for="title">Fecha</label>
                 <div class="controls">
                     <div class="input-group">
-                        <input id="date-picker-2" type="text" class="date-picker form-control" />
-                        <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                        <input id="date-picker-3" type="text" class="date-picker form-control" />
+                        <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
 
                         </label>
                     </div>
@@ -199,5 +197,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
