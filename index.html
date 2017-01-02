@@ -19,180 +19,385 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container full-height">
-        <div class="row full-height">
-            <div class="col-lg-6">
-              <form class="form-horizontal" id="form-busqueda">
-              <fieldset>
+    <div>
 
-              <!-- Form Name -->
-              <legend>Busqueda Tweets</legend>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+      <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tweets</a></li>
+      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Playlist</a></li>
+      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    </ul>
 
-              <!-- Select Basic -->
-              <div class="form-group">
-                <label class="col-md-2 control-label" for="cmbTemplates">Template</label>
-                <div class="col-md-6">
-                  <select id="cmbTemplates" name="selectbasic" class="form-control">
-                  </select>
-                </div>
-              </div>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane" id="home">...</div> <!-- End home tab -->
+      <div role="tabpanel" class="tab-pane active" id="profile">
+          <div class="container full-height">
+              <div class="row full-height">
+                  <div class="col-lg-6">
+                    <form class="form-horizontal" id="form-busqueda">
+                    <fieldset>
 
-              <!-- Prepended text-->
-              <div class="form-group">
-                <label class="col-md-2 control-label" for="wsSearch">WS</label>
-                <div class="col-md-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">http://</span>
-                    <input id="wsSearch" name="wsSearch" class="form-control" placeholder="placeholder" required="" type="text">
-                  </div>
-                  <p class="help-block">ej.: localhost, 192.168.1.1</p>
-                </div>
-              </div>
+                    <!-- Form Name -->
+                    <legend>Busqueda Tweets</legend>
 
-              <!-- Prepended text-->
-              <div class="form-group">
-                <label class="col-md-2 control-label" for="hashtag">Hashtag</label>
-                <div class="col-md-4">
-                  <div class="input-group">
-                    <span class="input-group-addon">#</span>
-                    <input id="hashtag" name="hashtag" class="form-control" placeholder="placeholder" required="" type="text">
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <button id="btnSearch" name="singlebutton" class="btn btn-primary" type="submit">Buscar</button>
-                </div>
-
-              </div>
-
-              </fieldset>
-              </form>
-
-              <div class="list-group" id="lstResultados">
-               <a href="#" class="list-group-item active">
-                 <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-               <a href="#" class="list-group-item">
-                 <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-               <a href="#" class="list-group-item">
-                 <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-               <a href="#" class="list-group-item">
-                 <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-               <a href="#" class="list-group-item">
-                 <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-               <a href="#" class="list-group-item">
-                 <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-               <a href="#" class="list-group-item">
-                 <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                 <p class="list-group-item-text">List Group Item Text</p>
-               </a>
-             </div>
-            </div>
-            <div class="col-lg-6">
-              <form class="form-horizontal">
-              <fieldset>
-
-              <!-- Form Name -->
-              <legend>Nuevo Playlist</legend>
-
-              <!-- Prepended text-->
-              <div class="form-group">
-                <label class="col-md-2 control-label" for="wsPlaylist">WebService</label>
-                <div class="col-md-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">http://</span>
-                    <input id="wsPlaylist" name="wsPlaylist" class="form-control" placeholder="placeholder" required="" type="text">
-                  </div>
-                  <p class="help-block">ej.: localhost, 192.168.1.1</p>
-                </div>
-              </div>
-
-              <!-- Prepended text-->
-              <div class="form-group">
-                <label class="col-md-2 control-label" for="title">Titulo</label>
-                <div class="col-md-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">#</span>
-                    <input id="title" name="title" class="form-control" placeholder="placeholder" required="" type="text">
-                  </div>
-                </div>
-                <label class="col-md-2 control-label" for="title">Fecha</label>
-                <div class="controls">
-                    <div class="input-group">
-                        <input id="date-picker-3" type="text" class="date-picker form-control" />
-                        <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
-
-                        </label>
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="cmbTemplates">Template</label>
+                      <div class="col-md-6">
+                        <select id="cmbTemplates" name="selectbasic" class="form-control">
+                        </select>
+                      </div>
                     </div>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="wsSearch">WS</label>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">http://</span>
+                          <input id="wsSearch" name="wsSearch" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                        <p class="help-block">ej.: localhost, 192.168.1.1</p>
+                      </div>
+                    </div>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="hashtag">Hashtag</label>
+                      <div class="col-md-4">
+                        <div class="input-group">
+                          <span class="input-group-addon">#</span>
+                          <input id="hashtag" name="hashtag" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <button id="btnSearch" name="singlebutton" class="btn btn-primary" type="submit">Buscar</button>
+                      </div>
+
+                    </div>
+
+                    </fieldset>
+                    </form>
+
+                    <div class="list-group" id="lstResultados">
+                    <a href="#" class="list-group-item active">
+                      <h4 class="list-group-item-heading">First List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
+                      <p class="list-group-item-text">List Group Item Text</p>
+                    </a>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <form class="form-horizontal">
+                    <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Nuevo Playlist</legend>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="wsPlaylist">WebService</label>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">http://</span>
+                          <input id="wsPlaylist" name="wsPlaylist" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                        <p class="help-block">ej.: localhost, 192.168.1.1</p>
+                      </div>
+                    </div>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="title">Titulo</label>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">#</span>
+                          <input id="title" name="title" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                      </div>
+                      <label class="col-md-2 control-label" for="title">Fecha</label>
+                      <div class="controls">
+                          <div class="input-group">
+                              <input id="date-picker-3" type="text" class="date-picker form-control" />
+                              <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+
+                              </label>
+                          </div>
+                      </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="description">Descripcion</label>
+                      <div class="col-md-6">
+                        <textarea class="form-control" id="description" name="description">default text</textarea>
+                      </div>
+                    </div>
+
+                    </fieldset>
+                    </form>
+                    <div class="list-group">
+                      <a href="#" class="list-group-item active">
+                        <h4 class="list-group-item-heading">First List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                          <h4 class="list-group-item-heading">
+                              <span class="badge">#hashtag</span>
+                              <span class="label label-default">fullname</span>
+                              <span class="label label-primary">@username</span>
+                              <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                              <span class="badge">2</span>
+                          </h4>                 
+                          <p class="list-group-item-text">Mensaje</p>
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                            Detalle
+                          </button>
+                      </a>
+                    </div>
+                    
+                    <div class="col-md-12">
+                      <div class="btn-group" role="group" aria-label="...">
+                          <button id="save" type="button" class="btn btn-primary">Save</button>
+                          <button id="new" type="button" class="btn btn-primary">New</button>
+                        </div>
+                      </div>
                 </div>
-              </div>
+                    </div>
+                  </div>
+              </div> <!-- end profile tab -->
 
-              <!-- Textarea -->
-              <div class="form-group">
-                <label class="col-md-2 control-label" for="description">Descripcion</label>
-                <div class="col-md-6">
-                  <textarea class="form-control" id="description" name="description">default text</textarea>
+      
+      <div role="tabpanel" class="tab-pane" id="messages">adfasd asdf sad fsadf </div> <!-- end Messages tab  --> 
+      
+      <div role="tabpanel" class="tab-pane" id="settings">
+                  <div class="col-lg-6">
+                    <form class="form-horizontal" id="form-busqueda">
+                    <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Busqueda Tweets</legend>
+
+                    <!-- Select Basic -->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="cmbTemplates">Template</label>
+                      <div class="col-md-6">
+                        <select id="cmbTemplates" name="selectbasic" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="wsSearch">WS</label>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">http://</span>
+                          <input id="wsSearch" name="wsSearch" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                        <p class="help-block">ej.: localhost, 192.168.1.1</p>
+                      </div>
+                    </div>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="hashtag">Hashtag</label>
+                      <div class="col-md-4">
+                        <div class="input-group">
+                          <span class="input-group-addon">#</span>
+                          <input id="hashtag" name="hashtag" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <button id="btnSearch" name="singlebutton" class="btn btn-primary" type="submit">Buscar</button>
+                      </div>
+
+                    </div>
+
+                    </fieldset>
+                    </form>
+
+                    <div id="lstResultados" class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <span class="badge">#hashtag</span>
+                        <span class="label label-default">fullname</span>
+                        <span class="label label-primary">@username</span>
+                        <span class="glyphicon glyphicon-picture align-right" aria-hidden="true"></span>
+                        <span class="badge">2</span>
+                      </div>
+                      <div class="panel-body">
+                        <p>Mensaje</p>
+                      </div>
+                      <div class="panel-footer">
+                          <span>dd/mm/yyyy hh:mm:ss</span>
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary btn-sm align-right" data-toggle="modal" data-target="#myModal">
+                            Detalle
+                          </button>                                              
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading"></div>
+                      <div class="panel-body"></div>
+                      <div class="panel-footer"></div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading"></div>
+                      <div class="panel-body"></div>
+                      <div class="panel-footer"></div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <form class="form-horizontal">
+                    <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Nuevo Playlist</legend>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="wsPlaylist">WebService</label>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">http://</span>
+                          <input id="wsPlaylist" name="wsPlaylist" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                        <p class="help-block">ej.: localhost, 192.168.1.1</p>
+                      </div>
+                    </div>
+
+                    <!-- Prepended text-->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="title">Titulo</label>
+                      <div class="col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">#</span>
+                          <input id="title" name="title" class="form-control" placeholder="placeholder" required="" type="text">
+                        </div>
+                      </div>
+                      <label class="col-md-2 control-label" for="title">Fecha</label>
+                      <div class="controls">
+                          <div class="input-group">
+                              <input id="date-picker-3" type="text" class="date-picker form-control" />
+                              <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+
+                              </label>
+                          </div>
+                      </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-group">
+                      <label class="col-md-2 control-label" for="description">Descripcion</label>
+                      <div class="col-md-6">
+                        <textarea class="form-control" id="description" name="description">default text</textarea>
+                      </div>
+                    </div>
+
+                    </fieldset>
+                    </form>
+                    <div class="list-group">
+                      <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                      </a>
+                      <a href="#" class="list-group-item">
+                          <h4 class="list-group-item-heading">
+                              <span class="badge">#hashtag</span>
+                              <span class="label label-default">fullname</span>
+                              <span class="label label-primary">@username</span>
+                              <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                              <span class="badge">2</span>
+                          </h4>                 
+                          <p class="list-group-item-text">Mensaje</p>
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                            Detalle
+                          </button>
+                      </a>
+                    </div>
+                    
+                    <div class="col-md-12">
+                      <div class="btn-group" role="group" aria-label="...">
+                          <button id="save" type="button" class="btn btn-primary">Save</button>
+                          <button id="new" type="button" class="btn btn-primary">New</button>
+                        </div>
+                      </div>
                 </div>
-              </div>
+            </div> <!-- end setting tab -->
 
-              </fieldset>
-              </form>
-              <div class="list-group">
-                 <a href="#" class="list-group-item active">
-                   <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-                 <a href="#" class="list-group-item">
-                   <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-                 <a href="#" class="list-group-item">
-                   <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-                 <a href="#" class="list-group-item">
-                   <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-                 <a href="#" class="list-group-item">
-                   <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-                 <a href="#" class="list-group-item">
-                   <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-                 <a href="#" class="list-group-item">
-                   <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                   <p class="list-group-item-text">List Group Item Text</p>
-                 </a>
-               </div>
-               <div class="form-group">
-                 <div class="input-group">
-                   <div class="col-md-4">
-                     <button id="search" name="singlebutton" class="btn btn-primary">Save</button>
-                   </div>
-                   <div class="col-md-4">
-                     <button id="search" name="singlebutton" class="btn btn-primary">New</button>
-                   </div>
+    </div> <!-- End tab-content -->
 
-                 </div>
-               </div>
-           </div>
-              </div>
-            </div>
-        </div>
     </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

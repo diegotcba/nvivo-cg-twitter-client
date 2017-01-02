@@ -3,8 +3,6 @@ var tweets = [];
 
 $(document).ready(function(){
   inicializar();
-
-  obtenerTemplates();
 });
 
 function inicializar() {
@@ -17,6 +15,8 @@ function inicializar() {
   });
 
   $('#lstResultados').empty();
+  
+  obtenerTemplates();
 }
 
 function obtenerTemplates() {
@@ -33,9 +33,11 @@ function obtenerTemplates() {
 }
 
 function cargarTemplates() {
+  var templateItems = "";
   for(i in templates) {
-    $('#cmbTemplates').append('<option value="' + templates[i].id + '">' + templates[i].nombre + '</option>');
+    templateItems += '<option value="' + templates[i].id + '">' + templates[i].nombre + '</option>';
   }
+  $('#cmbTemplates').append(templateItems);
 }
 
 function buscarTweets() {
@@ -48,7 +50,7 @@ function obtenerTweets() {
   let maxTweets = 5 * Math.random();
   tweets = [];
   for(let i=1;i < maxTweets; i++) {
-    aux = {id: i, heading: 'Text heading #' + i, text: 'Texto texto texto #' + i};
+    aux = {id: i, fullname: 'fullname' + i, username: 'username'+i, text: 'Texto texto texto #' + i, fechaHora: 'dd/mm/yyyy hh:mm:ss'};
 
     tweets.push(aux);
   }
@@ -61,22 +63,53 @@ function cargarTweets() {
   console.log('cargarTweets');
   var listGroup = $('#lstResultados');
 
-  console.log('list-group: ' + listGroup.length);
   listGroup.empty();
-  console.log('list-group: ' + listGroup.length);
 
+  var tweetsItems = [];
   for (let i in tweets) {
-      let item = $('<a></a>');
-      let heading = $('<h4></h4>');
+      let item = $('<div></div>');
+      let heading = $('<div></div>');
+      let hashtag = $('<span></span>');
+      let fullname = $('<span></span>');
+      let username = $('<span></span>');
+      let icono = $('<span></span>');
+      let imgs = $('<span></span>');
+      
+      let body = $('<div></div>');
       let text = $('<p></p>');
+      
+      let footer = $('<div></div>');
+      let dateTime = $('<span></span>');
+      let detalle = $('<button type="button" class="btn btn-primary btn-sm align-right" data-toggle="modal" data-target="#myModal">Detalle</button>');
 
-      item.attr({'href': '#', 'class': 'list-group-item'});
-      heading.attr({'class': 'list-group-item-heading'});
-      text.attr({'class': 'list-group-item-text'});
-
+      item.attr({'class': 'panel panel-default'});
+      heading.attr({'class': 'panel-heading'});
+      body.attr({'class':'panel-body'});
+      footer.attr({'class':'panel-footer'});
+      
+      dateTime.text(tweets[i].fechaHora);
+      footer.append(dateTime, detalle);
+      
       text.text(tweets[i].text);
-      heading.text(tweets[i].heading);
-      item.append(heading, text);
+      body.append(text);
+
+      hashtag.attr({'class':'badge'});
+      hashtag.text(tweets[i].id);
+      
+      fullname.attr({'class':'label label-default'});
+      fullname.text(tweets[i].fullname);
+      
+      username.attr({'class':'label label-primary'});
+      username.text(tweets[i].username);
+      
+      icono.attr({'class':'glyphicon glyphicon-picture align-right'});
+      
+      imgs.attr({'class':'badge'});
+      imgs.text('2');
+
+      heading.append(hashtag, fullname, username, icono, imgs);
+
+      item.append(heading, body, footer);
 
       listGroup.append(item);
   }
