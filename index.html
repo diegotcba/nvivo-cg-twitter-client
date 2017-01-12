@@ -33,8 +33,6 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane" id="home">...</div> <!-- End home tab -->
       <div role="tabpanel" class="tab-pane active" id="profile">
-          <div class="container full-height">
-              <div class="row full-height">
                   <div class="col-lg-6">
                     <form class="form-horizontal" id="form-busqueda">
                     <fieldset>
@@ -81,35 +79,48 @@
                     </fieldset>
                     </form>
 
-                    <div class="list-group" id="lstResultados">
-                    <a href="#" class="list-group-item active">
-                      <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                      <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                      <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                      <p class="list-group-item-text">List Group Item Text</p>
-                    </a>
+                    <div id="lstResultados" class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <span class="badge">#hashtag</span>
+                        <span class="label label-default">fullname</span>
+                        <span class="label label-primary">@username</span>
+                        <span class="glyphicon glyphicon-picture align-right" aria-hidden="true"></span>
+                        <span class="badge">2</span>
+                      </div>
+                      <div class="panel-body">
+                        <p>Mensaje</p>
+                      </div>
+                      <div class="panel-footer">
+                          <span>dd/mm/yyyy hh:mm:ss</span>
+                          <!-- Button trigger modal -->
+                          <!--<button type="button" class="btn btn-primary btn-sm align-right" data-toggle="modal" data-target="#myModal">
+                            Detalle
+                          </button>-->
+                          <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              ...
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <li><a href="#">Agregar</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Detalle</a></li>
+                              <li><a href="#">Imagenes</a></li>
+                            </ul>
+                          </div>                                                                        
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading"></div>
+                      <div class="panel-body"></div>
+                      <div class="panel-footer"></div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading"></div>
+                      <div class="panel-body"></div>
+                      <div class="panel-footer"></div>
+                    </div>
                   </div>
                   </div>
                   <div class="col-lg-6">
@@ -137,16 +148,14 @@
                       <div class="col-md-6">
                         <div class="input-group">
                           <span class="input-group-addon">#</span>
-                          <input id="title" name="title" class="form-control" placeholder="placeholder" required="" type="text">
+                          <input id="playlistTitle" name="title" class="form-control" placeholder="placeholder" required="" type="text">
                         </div>
                       </div>
                       <label class="col-md-2 control-label" for="title">Fecha</label>
                       <div class="controls">
                           <div class="input-group">
-                              <input id="date-picker-3" type="text" class="date-picker form-control" />
-                              <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
-
-                              </label>
+                              <input id="playlistDate" type="text" class="date-picker form-control" />
+                              <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span></label>
                           </div>
                       </div>
                     </div>
@@ -155,33 +164,13 @@
                     <div class="form-group">
                       <label class="col-md-2 control-label" for="description">Descripcion</label>
                       <div class="col-md-6">
-                        <textarea class="form-control" id="description" name="description">default text</textarea>
+                        <textarea class="form-control" id="playlistDescription" name="description">default text</textarea>
                       </div>
                     </div>
 
                     </fieldset>
                     </form>
-                    <div class="list-group">
-                      <a href="#" class="list-group-item active">
-                        <h4 class="list-group-item-heading">First List Group Item Heading</h4>
-                        <p class="list-group-item-text">List Group Item Text</p>
-                      </a>
-                      <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                        <p class="list-group-item-text">List Group Item Text</p>
-                      </a>
-                      <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                        <p class="list-group-item-text">List Group Item Text</p>
-                      </a>
-                      <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
-                        <p class="list-group-item-text">List Group Item Text</p>
-                      </a>
-                      <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
-                        <p class="list-group-item-text">List Group Item Text</p>
-                      </a>
+                    <div id="playlistDetail" class="list-group">
                       <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
                         <p class="list-group-item-text">List Group Item Text</p>
@@ -204,13 +193,11 @@
                     
                     <div class="col-md-12">
                       <div class="btn-group" role="group" aria-label="...">
-                          <button id="save" type="button" class="btn btn-primary">Save</button>
-                          <button id="new" type="button" class="btn btn-primary">New</button>
+                          <button id="savePlaylist" type="submit" class="btn btn-primary">Save</button>
+                          <button id="newPlaylist" type="button" class="btn btn-primary">New</button>
                         </div>
                       </div>
                 </div>
-                    </div>
-                  </div>
               </div> <!-- end profile tab -->
 
       
