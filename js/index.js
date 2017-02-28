@@ -58,43 +58,62 @@ function buscarTweets() {
 }
 
 function obtenerTweets() {
-  mockTweets();
-  cargarTweets();
+  queryTweets();
+  //mockTweets();
 }
 
 function queryTweets() {
   var hashtagValue = $('#hashtag').val();
+  var userValue = '';
+  
 
   var query = {
-    hashtag: hashtagValue
+    "hashtag": hashtagValue,
+    "user": userValue,
+    "startDateTime": '',
+    "endDateTime": '',
+    "location": ''
   }
   
   getTweets(query).done(function(data){
-    searchTweets = data;
+    console.log(data);
+    searchTweets = data.tweets;
     cargarTweets();
-  })
+  }).fail(function(){
+    console.log('error en ws');
+  });
 }
 
 function mockTweets() {
   let aux;
   let maxTweets = 5 * Math.random();
+  let mockHashtag = $('#hashtag').val();
   searchTweets = [];
   
   for(let i=1;i < maxTweets; i++) {
-    aux = {id: i, fullname: 'fullname' + i, username: 'username'+i, text: 'Texto texto texto #' + i, fechaHora: 'dd/mm/yyyy hh:mm:ss'};
+    aux = {id: i, hashtag: '#' + mockHashtag + i, fullName: 'fullname' + i, userName: 'username'+i, message: 'Texto texto texto #' + i, dateTime: 'dd/mm/yyyy hh:mm:ss'};
 
     searchTweets.push(aux);
   }
 
-  console.log('cant tweets: ' + searchTweets.length);  
+  console.log('cant tweets: ' + searchTweets.length);
+  cargarTweets();
 }
 
 function getTweets(query) {
+  var wsAddress = $('#wsSearch').val();
+  var jsonQuery = JSON.stringify(query);
+  var wsServicePath = '/nvivo-cg-twitter-service/tweets/';
+  var wsSearchPath = 'http://' + wsAddress + wsServicePath;
+  
+  console.log(wsSearchPath);
+  console.log(jsonQuery);
+  
   return $.ajax({
-    url: 'http://' + $('wsSearch').val(),
+    url: wsSearchPath,
     type: 'POST',
     dataType: 'json',
-    data: JSON.stringify(query),
+    data: jsonQuery,
     cache: false,
     contentType: 'application/json',
     processData: false
@@ -136,21 +155,21 @@ function cargarTweets() {
       body.attr({'class':'panel-body'});
       footer.attr({'class':'panel-footer'});
       
-      dateTime.text(tweet.fechaHora);
+      dateTime.text(tweet.dateTime);
       dropdown = generarListItemDropdown(tweet);
       footer.append(dateTime, dropdown);
       
-      text.text(tweet.text);
+      text.text(tweet.message);
       body.append(text);
 
       hashtag.attr({'class':'badge'});
-      hashtag.text('#hashtag' + tweet.id);
+      hashtag.text(tweet.hashtag);
       
       fullname.attr({'class':'label label-default'});
-      fullname.text(tweet.fullname);
+      fullname.text(tweet.fullName);
       
       username.attr({'class':'label label-primary'});
-      username.text(tweet.username);
+      username.text(tweet.userName);
       
       icono.attr({'class':'glyphicon glyphicon-picture align-right'});
       
@@ -261,21 +280,21 @@ function generarPlaylistItem(tweet) {
     body.attr({'class':'panel-body'});
     footer.attr({'class':'panel-footer'});
     
-    dateTime.text(tweet.fechaHora);
+    dateTime.text(tweet.dateTime);
     dropdown = generarPlaylistItemDropdown(tweet);
     footer.append(dateTime, dropdown);
     
-    text.text(tweet.text);
+    text.text(tweet.message);
     body.append(text);
 
     hashtag.attr({'class':'badge'});
-    hashtag.text('#hashtag' + tweet.id);
+    hashtag.text(tweet.hashtag);
     
     fullname.attr({'class':'label label-default'});
-    fullname.text(tweet.fullname);
+    fullname.text(tweet.fullName);
     
     username.attr({'class':'label label-primary'});
-    username.text(tweet.username);
+    username.text(tweet.userName);
     
     icono.attr({'class':'glyphicon glyphicon-picture align-right'});
     
@@ -338,14 +357,23 @@ function guardarPlaylist() {
     tweets: playlistTweets
   } 
   
-  postPlaylist(playlistSave).done(function(){
+  postPlaylist(playlistSave)
+  .done(function() {
     alert('Playlist guardada con exito');
+  })
+  .fail(function() {
+    
   });
 }
 
 function postPlaylist(playlist) {
+  var wsAddress = $('#wsPlaylist').val();
+  var jsonQuery = JSON.stringify(query);
+  var wsServicePath = '/nvivo-cg-twitter-service/tweets/';
+  var wsPlaylistPath = 'http://' + wsAddress + wsServicePath;
+    
   return $.ajax({
-    url: 'http://' + $('wsPlaylist') .val(),
+    url: wsPlaylistPath,
     type: 'POST',
     dataType: 'json',
     data: JSON.stringify(playlist),
