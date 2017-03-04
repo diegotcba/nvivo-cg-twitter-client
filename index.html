@@ -40,27 +40,6 @@
                     <!-- Form Name -->
                     <legend>Busqueda Tweets</legend>
 
-                    <!-- Select Basic -->
-                    <div class="form-group">
-                      <label class="col-md-2 control-label" for="cmbTemplates">Template</label>
-                      <div class="col-md-6">
-                        <select id="cmbTemplates" name="selectbasic" class="form-control">
-                        </select>
-                      </div>
-                    </div>
-
-                    <!-- Prepended text-->
-                    <div class="form-group">
-                      <label class="col-md-2 control-label" for="wsSearch">WS</label>
-                      <div class="col-md-6">
-                        <div class="input-group">
-                          <span class="input-group-addon">http://</span>
-                          <input id="wsSearch" name="wsSearch" class="form-control" placeholder="placeholder" required="" type="text">
-                        </div>
-                        <p class="help-block">ej.: localhost, 192.168.1.1</p>
-                      </div>
-                    </div>
-
                     <!-- Prepended text-->
                     <div class="form-group">
                       <label class="col-md-2 control-label" for="hashtag">Hashtag</label>
@@ -79,7 +58,7 @@
                     </fieldset>
                     </form>
 
-                    <div id="lstResultados" class="panel-group">
+                    <div id="lstResultados" class="panel-group pre-scrollable">
                     <div class="panel panel-default">
                       <div class="panel-heading">
                         <span class="badge">#hashtag</span>
@@ -132,29 +111,16 @@
 
                     <!-- Prepended text-->
                     <div class="form-group">
-                      <label class="col-md-2 control-label" for="wsPlaylist">WebService</label>
-                      <div class="col-md-6">
-                        <div class="input-group">
-                          <span class="input-group-addon">http://</span>
-                          <input id="wsPlaylist" name="wsPlaylist" class="form-control" placeholder="placeholder" required="" type="text">
-                        </div>
-                        <p class="help-block">ej.: localhost, 192.168.1.1</p>
-                      </div>
-                    </div>
-
-                    <!-- Prepended text-->
-                    <div class="form-group">
                       <label class="col-md-2 control-label" for="title">Titulo</label>
                       <div class="col-md-6">
                         <div class="input-group">
-                          <span class="input-group-addon">#</span>
-                          <input id="playlistTitle" name="title" class="form-control" placeholder="placeholder" required="" type="text">
+                          <input id="txtPlaylistTitle" name="title" class="form-control" placeholder="placeholder" required="" type="text">
                         </div>
                       </div>
-                      <label class="col-md-2 control-label" for="title">Fecha</label>
-                      <div class="controls">
+                      <label class="col-md-1 control-label" for="title">Fecha</label>
+                      <div class="controls col-md-3">
                           <div class="input-group">
-                              <input id="playlistDate" type="text" class="date-picker form-control" />
+                              <input id="txtPlaylistDate" type="text" class="date-picker form-control" name="date-picker-3"/>
                               <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span></label>
                           </div>
                       </div>
@@ -164,13 +130,13 @@
                     <div class="form-group">
                       <label class="col-md-2 control-label" for="description">Descripcion</label>
                       <div class="col-md-6">
-                        <textarea class="form-control" id="playlistDescription" name="description">default text</textarea>
+                        <textarea class="form-control" id="txtPlaylistDescription" name="description" placeholder="default text"></textarea>
                       </div>
                     </div>
 
                     </fieldset>
                     </form>
-                    <div id="playlistDetail" class="list-group">
+                    <div id="playlistDetail" class="list-group pre-scrollable">
                       <a href="#" class="list-group-item">
                         <h4 class="list-group-item-heading">Second List Group Item Heading</h4>
                         <p class="list-group-item-text">List Group Item Text</p>
@@ -230,7 +196,7 @@
                       </fieldset>
                     </form>
 
-                    <div id="lstPlaylists" class="panel-group">
+                    <div id="lstPlaylists" class="panel-group pre-scrollable">
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <span class="badge">#ID</span>
@@ -245,6 +211,7 @@
                           <span class="badge">4</span>
                         </div>
                       </div>
+
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <span class="badge">#ID</span>
@@ -281,7 +248,7 @@
                         <!-- Prepended text-->
                         <div class="form-group">
                           <label class="col-md-2 control-label">Fecha</label>
-                          <p class="form-control-static">dd/mm/yyyy hh:mm:ss</p>
+                          <p class="form-control-static" id="playlistDate">dd/mm/yyyy hh:mm:ss</p>
                         </div>
                         <!-- Prepended text-->
                         <div class="form-group">
@@ -292,7 +259,7 @@
                       </fieldset>
                     </form>
 
-                    <div id="lstResultados" class="panel-group">
+                    <div id="lstPlaylistDetail" class="panel-group pre-scrollable">
                       <div class="panel panel-default">
                         <div class="panel-heading">
                           <span class="badge">#hashtag</span>
@@ -365,7 +332,7 @@
                             </label>
                           </div>
                         </div>                                              
-                        <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group col-md-offset-4" role="group" aria-label="...">
                             <button id="btnStart" type="button" class="btn btn-primary btn-lg">Start</button>
                             <button id="btnStop" type="button" class="btn btn-primary btn-lg">Stop</button>
                         </div>                                          
@@ -375,6 +342,45 @@
       </div> <!-- end Messages tab  --> 
       
       <div role="tabpanel" class="tab-pane" id="settings">
+        <div class="col-lg-6">
+        <form class="form-horizontal" id="form-settings">
+          <legend>Webservice</legend>
+            <div class="form-group">
+              <div class="col-lg-6 col-lg-offset-2">
+                <label>
+                  <input type="checkbox" id="chkMockWS"> Simular WS
+                </label>
+              </div>
+            </div>    
+            <div class="form-group">
+              <label class="col-lg-2 control-label" for="txtWSRootUrl">WS Root Url</label>
+              <div class="col-lg-4">
+                <div class="input-group">
+                  <span class="input-group-addon">http://</span>
+                  <input id="txtWSRootUrl" name="txtWSRootUrl" class="form-control" placeholder="placeholder" required="" type="text">
+                </div>
+                <p class="help-block">ej.: localhost, 192.168.1.1</p>
+              </div>
+            </div>
+            <legend>CG Server</legend>
+            <div class="form-group">
+              <label class="col-lg-2 control-label" for="txtCGServerUrl">CG Server Url</label>
+              <div class="col-lg-4">
+                <div class="input-group">
+                  <span class="input-group-addon">http://</span>
+                  <input id="txtCGServerUrl" name="txtCGServerUrl" class="form-control" placeholder="placeholder" required="" type="text">
+                </div>
+                <p class="help-block">ej.: localhost, 192.168.1.1</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6">
+                <button id="btnSaveSettings" name="singlebutton" class="btn btn-primary btn-lg" type="submit">Save</button>
+              </div>
+            </div>
+
+        </form>
+        </div> <!-- end container -->
       </div> <!-- end setting tab -->
 
     </div> <!-- End tab-content -->
